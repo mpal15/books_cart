@@ -1,0 +1,27 @@
+<h1 class="mt-5 mb-4">Update Product</h1>
+<%if(errorMessage){%>
+<div class="alert alert-danger" role="alert">
+    
+    <%=  errorMessage %>
+</div>
+<%}%>
+<form action="/update_product/" method="post">
+    <input type="hidden" class="form-control" id="id" name="id" value="<%= products.id %>" required>
+    <div class="mb-3">
+        <label for="name" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="name" name="name"  value="<%= products.name %>" required >
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Product Description</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3"  required><%= products.desc %></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" step="0.01" min="0"   value="<%= products.price %>" required>
+    </div>
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Image URL</label>
+        <input type="text" class="form-control" id="image" name="image"  value="<%= products.image %>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
